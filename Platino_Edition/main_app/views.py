@@ -44,11 +44,12 @@ def home(request):
 def about(request):
  return render(request,'about.html')
 
-def Realstate(request):
-  return render(request, 'Realstate.html')
 
-def Yacht(request):
-  return render(request, 'Yacht.html')
+def Realstate(request):
+    return render(request, 'Realstate.html', {'real':Realestate.objects.all()})
+
+def Yach(request):
+    return render(request, 'Yacht.html', {'yach':Yacht.objects.all()})
 
 def Car(request):
   return render(request, 'Car.html')
