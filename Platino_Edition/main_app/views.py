@@ -44,17 +44,17 @@ def home(request):
 def about(request):
  return render(request,'about.html')
 
-def realstates(request):
-  return render(request, 'realstates.html')
+def Realstate(request):
+  return render(request, 'Realstate.html')
 
-def yachts(request):
-  return render(request, 'yachts.html')
+def Yacht(request):
+  return render(request, 'Yacht.html')
 
-def car(request):
-  return render(request, 'car.html')
+def Car(request):
+  return render(request, 'Car.html')
 
-def jets(request):
-  return render(request, 'jets.html')
+def Jet(request):
+  return render(request, 'Jet.html')
 
 
 

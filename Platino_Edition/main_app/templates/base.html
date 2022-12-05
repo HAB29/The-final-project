@@ -9,67 +9,78 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="{% static 'realCss/style.css' %}">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
 </head>
 <body>
-  <header class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper black">
-        <ul>
-        <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Platino Edition</a></li>
-        </ul>
-        <ul class="right">
-         <li><a href="/about">About</a></li>
-         <li><a href="/home">home</a></li>
-         {% if user.is_authenticated %}
-        
-         <li><a href="{% url 'logout' %}">Log Out</a></li>
+  <div class="header-nav">
 
-         {% else %}
-         <!-- New link below -->
-         <li><a href="{% url 'signup' %}">Sign Up</a></li>
-         <li><a href="{% url 'login' %}">Log In</a></li>
-       {% endif %}
-         <!-- <li><a href="/finches">اي شي</a></li> -->
-        </ul>
-        
-      </div>
-    </nav>
-      </li>
-      </ul>
-      </header>
+    <header class="navbar-fixed">
       <nav>
-        <div class="nav-wrapper black">
-      <ul>
-      <li>
-      <a href="/realstates" class="nav-wrapper black" data-name="realstates">
-      <span>Real Estate</span>
-      </a>
-      </li>
-      <li>
-      <a href="/car" class="nav-wrapper black" data-name="Cars">
-      <span>Cars</span>
-      </a>
-      </li>
-      <li>
-      <a href="/yachts" class="nav-wrapper black" data-name="Yachts">
-      <span>Yachts</span>
-      </a>
-      </li>
-      <li>
-      <a href="/jets" class="nav-wrapper black" data-name="Jets">
-      <span>Jets</span>
-      </a>
-    </li>
-
+        <div class="nav-wrapper grey darken-4">
+          <ul>
+            <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Platino Edition</a>
+            </li>
+          </ul>
+          <ul class="right">
+            <li><a href="/about">About</a></li>
+            <li><a href="/home">home</a></li>
+            {% if user.is_authenticated %}
+            
+            
+            <li><a href="{% url 'signup' %}">Profile</a></li>
+            
+            
+            <li>Welcome {{user.username}}</li>
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
+            
+            {% else %}
+            <!-- New link below -->
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a href="{% url 'login' %}">Log In</a></li>
+            <li></li>
+            {% endif %}
+            
+          </ul>
+          
+        </div>
       </nav>
+    </li>
+  </ul>
+</header>
+<nav>
+  <div class="nav-wrapper grey grey darken-3">
+    <ul>
+      <li>
+        <a href="/Realstate" class="nav-wrapper grey darken-3" data-name="Realstate">
+          <span>Real Estate</span>
+        </a>
+      </li>
+      <li>
+        <a href="/Car" class="nav-wrapper grey darken-3" data-name="Car">
+          <span>Cars</span>
+        </a>
+      </li>
+      <li>
+        <a href="/Yacht" class="nav-wrapper grey darken-3" data-name="Yacht">
+          <span>Yachts</span>
+        </a>
+      </li>
+      <li>
+        <a href="/Jet" class="nav-wrapper grey darken-3" data-name="Jet">
+          <span>Jets</span>
+        </a>
+      </li>
+      
+    </nav>
   </header>
+</div>
   
   <main class="container"> 
     {% block content %}
     {% endblock %}
   </main>
-  <footer class="nav-wrapper white">
+  <footer class="nav-wrapper grey darken-3">
     <div class="right">All Rights Reserved, &copy; Platino &reg; 2022 Platino Edition &nbsp;</div>
   </footer> 
-</body>
-</html>
+</body> 
+</html> 
