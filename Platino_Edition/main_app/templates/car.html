@@ -3,6 +3,22 @@
 
     <h1>CAR 🚘</h1>
     <hr />
-    <!-- <li><a href="/car/create">Add car</a></li> -->
-    <footer> All Rights Reserved, &copy; 2022 Platino Edition </footer> 
-{% endblock  %}
+
+    {% for veh in vehicle %}
+
+        <ul> 
+       
+       <li> Brand: {{veh.brand}}</li> 
+       <li> Type: ${{veh.type}}</li> 
+       <li> Year: {{veh.year}}</li> 
+       <li> Description: {{veh.description}}</li> 
+       <li> Price: {{veh.price}}</li> 
+       {% for image in veh.multimg_set.all %}
+       <li><img src="{{ image.Images.url }}"></li><br>
+       
+        {% endfor %}
+        <button type="submit">Book Now!</button>
+    </ul>
+    
+       {% endfor %}
+    {% endblock  %}

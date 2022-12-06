@@ -4,5 +4,22 @@
     <h1>Jets 🛩</h1>
     
     <hr />
+    {% for je in je %}
+
+    <ul> 
+   
+   <li> Title: {{je.tittle}}</li> 
+   <li> Price: ${{je.price}}</li> 
+   <li> Space: {{je.space}}</li> 
+   <li> Features: {{je.features}}</li> 
+   <li> Location: {{je.location}}</li> 
+   {% for image in je.multimg_set.all %}
+   <li><img src="{{ image.Images.url }}"></li><br>
+   
+    {% endfor %}
+    <button type="submit">Book Now!</button>
+</ul>
+
+   {% endfor %}
     <footer>All Rights Reserved, &copy; 2022 Platino Edition</footer> 
 {% endblock  %}

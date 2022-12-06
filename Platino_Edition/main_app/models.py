@@ -58,4 +58,13 @@ class Multimg(models.Model):
     yachts = models.ForeignKey(Yacht, default=None, on_delete=models.CASCADE, blank=True, null=True)
 
 
+class Booking(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    cars = models.ForeignKey(Car, default=None, on_delete=models.CASCADE, blank=True, null=True)
+    realestates = models.ForeignKey(Realestate, default=None, on_delete=models.CASCADE, blank=True, null=True)
+    jets = models.ForeignKey(Jet, default=None, on_delete=models.CASCADE, blank=True, null=True)
+    yachts = models.ForeignKey(Yacht, default=None, on_delete=models.CASCADE, blank=True, null=True)
+
+
+
 
