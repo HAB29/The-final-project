@@ -17,7 +17,10 @@
        <li><img src="{{ image.Images.url }}"></li><br>
        
         {% endfor %}
-        <button type="submit">Book Now!</button>
+        <form action="/addCarBooking/{{ veh.id }}/" method="POST">
+           {% csrf_token %}
+            <button type="submit">Book Now!</button>
+        </form>
     </ul>
     
        {% endfor %}

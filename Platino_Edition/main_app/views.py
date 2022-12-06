@@ -79,6 +79,11 @@ def jet(request):
     return render(request, 'Jet.html', {'je':je})
 
 
+def addCarBooking(request, item_id):
+    c = Car.objects.get(id=item_id)
+    b = request.user.booking_set.create(cars=c)
+    b.save()
+    return redirect('profile')
 
 
 
