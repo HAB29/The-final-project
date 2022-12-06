@@ -54,8 +54,10 @@ def Yach(request):
 def Car(request):
   return render(request, 'Car.html')
 
+
 def Jet(request):
   return render(request, 'Jet.html')
+
 
 
 
