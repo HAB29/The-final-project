@@ -1,7 +1,62 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <h1>CAR 🚘</h1>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Save data in localStorage using JavaScript</title>
+        <link rel="stylesheet" href="style.css" />
+      </head>
+      <body>
+        <h1>CAR 🚘</h1>
+        <form id="note-form">
+          <input id="note-input" type="text" placeholder="+ Add Comment" required />
+          <button id="note-submit">Save</button>
+        </form>
+        <ul id="notes"></ul>
+        <script>
+          const noteForm = document.getElementById("note-form");
+          const noteInput = document.getElementById("note-input");
+          const noteSubmit = document.getElementById("note-submit");
+          const notes = document.getElementById("notes");
+    
+          let notesStorage = localStorage.getItem("notes")
+            ? JSON.parse(localStorage.getItem("notes"))
+            : [];
+    
+          noteForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            notesStorage.push(noteInput.value);
+            localStorage.setItem("notes", JSON.stringify(notesStorage));
+            listBuilder(noteInput.value);
+            noteInput.value = "";
+          });
+    
+          const listBuilder = (text) => {
+            const note = document.createElement("li");
+            note.innerHTML = text + `<li>{{user.username}}</li>` + `<button onclick="deleteNote(this)">x</button>`
+            // note.innerHTML = text + ' ';
+            notes.appendChild(note);
+          };
+    
+          const getNotes = JSON.parse(localStorage.getItem("notes"));
+          getNotes.forEach((note) => {
+            listBuilder(note);
+          });
+    
+          const deleteNote = (btn) => {
+            let el = btn.parentNode;
+            const index = [...el.parentElement.children].indexOf(el);
+            notesStorage.splice(index, 1);
+            localStorage.setItem("notes", JSON.stringify(notesStorage));
+            el.remove();
+          };
+          </script>
+      </body>
+    </html>
+
     <hr />
     <!-- <li><a href="/car/create">Add car</a></li> -->
     <footer> All Rights Reserved, &copy; 2022 Platino Edition </footer> 
