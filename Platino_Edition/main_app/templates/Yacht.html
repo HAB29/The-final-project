@@ -4,7 +4,7 @@
     <h1>Yachts 🛥</h1>
     <hr />
 
-    {% for yah in yach %}
+    {% for yah in boat %}
 
     <ul>
     
@@ -15,14 +15,14 @@
     <li>Price: {{yah.price}}</li>
     <li>Location: {{yah.location}}}</li>
     <li>Image: {{yah.Image}}</li>
+    {% for image in yah.multimg_set.all %}
+    <li><img src="{{ image.Images.url }}"></li><br>
+    
+     {% endfor %}
 
 
     </ul>
 
 
     {% endfor %}
-
-
-
-    <footer> All Rights Reserved, &copy; 2022 Platino Edition </footer> 
 {% endblock  %}

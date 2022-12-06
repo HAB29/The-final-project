@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <h1>REALESTATES🏘</h1>
+    <h1>REAL ESTATES🏘</h1>
     <hr />
      
    {% for real in real %}
@@ -13,11 +13,12 @@
    <li> Space: {{real.space}}</li> 
    <li> Features: {{real.features}}</li> 
    <li> Location: {{real.location}}</li> 
-   <li> Images: <img src="{{real.image.url}}"></li><br>
-    </ul>
+   {% for image in real.multimg_set.all %}
+   <li><img src="{{ image.Images.url }}"></li><br>
+   
+    {% endfor %}
+    <button type="submit">Book Now!</button>
+</ul>
 
    {% endfor %}
-
-    
-    <footer>All Rights Reserved, &copy; 2022 Platino Edition</footer> 
 {% endblock  %}
