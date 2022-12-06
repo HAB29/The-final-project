@@ -1,7 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <h1>REALSTATES🏘</h1>
+    <h1>REALESTATES🏘</h1>
     <hr />
+     
+   {% for real in real %}
+
+    <ul> 
+   
+   <li> Title: {{real.tittle}}</li> 
+   <li> Price: ${{real.price}}</li> 
+   <li> Space: {{real.space}}</li> 
+   <li> Features: {{real.features}}</li> 
+   <li> Location: {{real.location}}</li> 
+   <li> Images: <img src="{{real.image.url}}"></li><br>
+    </ul>
+
+   {% endfor %}
+
+    
     <footer>All Rights Reserved, &copy; 2022 Platino Edition</footer> 
 {% endblock  %}
