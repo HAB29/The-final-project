@@ -1,0 +1,62 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+  }
+  
+  main {
+    flex: 1 0 auto;
+  }
+  
+  footer.page-footer {
+    padding-top: 0;
+    text-align: right;
+  }
+  
+  .details:link{
+    color: white;
+    font-weight: bold;
+  }
+  
+  .details:visited {
+    color: rgb(17, 84, 17);
+  }
+  
+  .NAV2{
+    float: right;
+    font-size: larger;
+  }
+
+  .NAV3{
+    float: right;
+  }
+  .NAV5{
+    float: right;
+  }
+/* .navMenueUl{
+    display: inline-flex;
+    flex-direction: row;
+    text-decoration:none
+}
+
+.navMenuLi{
+    margin:20px
+} */
+
+/* The fisrt navbar on top */
+/* .navMenueUl1{
+  text-decoration:none;
+    display: inline-flex;
+    flex-direction: row;
+    margin-right: 30px;
+}
+
+.navMenu{
+  background-color: white;
+
+}
+.right-nav{
+  text-decoration:none;
+  background-color: white;
+} */
