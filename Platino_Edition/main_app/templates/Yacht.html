@@ -4,7 +4,26 @@
     <h1>Yachts 🛥</h1>
     
     <hr />
-    <footer>All Rights Reserved, &copy; 2022 Platino Edition
 
-    </footer> 
+    {% for yah in boat %}
+
+    <ul>
+    
+    <li>Brand: {{yah.brand}}</li>
+    <li>Type: {{yah.type}}</li>
+    <li>Year: {{yah.year}}</li>
+    <li>Features: {{yah.features}}</li>
+    <li>Price: {{yah.price}}</li>
+    <li>Location: {{yah.location}}}</li>
+    <li>Image: {{yah.Image}}</li>
+    {% for image in yah.multimg_set.all %}
+    <li><img src="{{ image.Images.url }}"></li><br>
+    
+     {% endfor %}
+
+
+    </ul>
+
+
+    {% endfor %}
 {% endblock  %}

@@ -5,7 +5,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
-...
+# ...
 
 
 def signup(request):
@@ -44,17 +44,40 @@ def home(request):
 def about(request):
  return render(request,'about.html')
 
+def profile(request):
+ return render(request,'profile.html')
+
+
 def Realstate(request):
-  return render(request, 'Realstate.html')
+    real = Realestate.objects.all()
+    for r in real:
+        r = r.multimg_set.all()
+        print(r)
+    return render(request, 'Realstate.html', {'real': real})
 
-def Yacht(request):
-  return render(request, 'Yacht.html')
+def Yach(request):
+    boat = Yacht.objects.all()
+    for yay in boat:
+        yay = yay.multimg_set.all()
+        print(yay)
+    return render(request, 'Yacht.html', {'boat':boat})
 
-def Car(request):
-  return render(request, 'Car.html')
+def car(request):
+    # vehicle = Car.objects.all()
+    vehicle = Car.objects.all()
+    for v in vehicle:
+        v = v.multimg_set.all()
+        print(v)
+    return render(request, 'Car.html', {'vehicle':vehicle})
 
-def Jet(request):
-  return render(request, 'Jet.html')
+
+def jet(request):
+    je = Jet.objects.all()
+    for j in je:
+        j = j.multimg_set.all()
+        print(j)
+    return render(request, 'Jet.html', {'je':je})
+
 
 
 
