@@ -1,12 +1,11 @@
 from django.shortcuts import render, redirect
-from .models import Car, Realestate, Yacht, Jet, User
+from .models import *
 
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 # ...
-
 
 def signup(request):
   error_message = ''
@@ -23,7 +22,6 @@ def signup(request):
     else:
       error_message = 'Invalid sign up - try again'
   # A bad POST or a GET request, so render signup.html with an empty form
-  
   
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
@@ -85,6 +83,42 @@ def addCarBooking(request, item_id):
     b.save()
     return redirect('profile')
 
+def removeBooking(request, item_id, item_name):
+    if item_name == 'cars':
+        b = Booking.objects.get(id=item_id)
+        request.user.booking_set.remove(b)
+
+    elif item_name == 'realestates':
+        z = Booking.objects.get(id=item_id)
+        request.user.booking_set.remove(z)
+            
+    elif item_name == 'jets':
+        y = Booking.objects.get(id=item_id)
+        request.user.booking_set.remove(z)
+            
+    elif item_name == 'yachts':
+        x = Booking.objects.get(id=item_id)
+        request.user.booking_set.remove(z)
+
+    return redirect('profile')
+
+def addRealBooking(request, item_id):
+    re = Realestate.objects.get(id=item_id)
+    rea = request.user.booking_set.create(realestates=re)
+    rea.save()
+    return redirect('profile')
+
+def addJetBooking(request, item_id):
+    jey = Jet.objects.get(id=item_id)
+    jea = request.user.booking_set.create(jets=jey)
+    jea.save()
+    return redirect('profile')
+
+def addYachtBooking(request, item_id):
+    yachy = Yacht.objects.get(id=item_id)
+    yea = request.user.booking_set.create(yachts=yachy)
+    yea.save()
+    return redirect('profile')
 
 
 

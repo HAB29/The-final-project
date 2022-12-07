@@ -1,16 +1,54 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <h1>hi profile</h1>
-
     <h2>My Bookings</h2>
     {% for c in user.booking_set.all %}
         <p>{{ c.cars.type }}</p>
         <p>{{ c.cars.brand }}</p>
-        <p>{{ c.cars.year }}</p>
-        <p>{{ c.cars.description }}</p>
+        <p>{{ c.cars.year }}</p> <br>
+        <form action="/removeBooking/{{ c.id }}/cars/" method="POST">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+        </form>
+        {% endfor %}
         
-    {% endfor %}
+        {% for re in user.booking_set.all %}
+        <p>{{ re.realestates.tittle }}</p>
+        <p>{{ re.realestates.price }}</p>
+        <p>{{ re.realestates.location }}</p><br>
+        
+        <form action="/removeBooking/{{ re.realestates.id }}/realestates/" method="POST">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+        </form>
+        {% endfor %}
+        
+        {% for yachy in user.booking_set.all %}
+        <p>{{ yachy.yachts.brand }}</p>
+        <p>{{ yachy.yachts.type }}</p>
+        <p>{{ yachy.yachts.price }}</p>
+        <p>{{ yachy.yachts.location }}</p><br>
+        <form action="/removeBooking/{{ yachy.yachts.id }}/yachts/" method="POST">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+        </form>
+        
+        {% endfor %}
+        
+        {% for jete in user.booking_set.all %}
+        <p>{{ jete.jets.brand }}</p>
+        <p>{{ jete.jets.type }}</p>
+        <p>{{ jete.jets.price }}</p>
+        <p>{{ jete.jets.location }}</p><br>
+        <form action="/removeBooking/{{ jete.jets.id }}/jets/" method="POST">
+            {% csrf_token %}
+             <button type="submit">Delete</button>
+         </form>
+
+{% endfor %}
+
+
+
         
 {% endblock %}
 

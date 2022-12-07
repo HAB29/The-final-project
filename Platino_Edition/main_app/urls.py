@@ -11,6 +11,12 @@ urlpatterns = [
     path('Car/', views.car, name='Car'),
     path('profile/', views.profile, name='profile'),
     path('addCarBooking/<int:item_id>/', views.addCarBooking, name='addCarBooking'),
+    path('addRealBooking/<int:item_id>/', views.addRealBooking, name='addRealBooking'),
+    path('addYachtBooking/<int:item_id>/', views.addYachtBooking, name='addRealBooking'),
+    path('addJetBooking/<int:item_id>/', views.addJetBooking, name='addRealBooking'),
+    path('removeBooking/<int:item_id>/<str:item_name>/', views.removeBooking, name='removeBooking'),
+
+
     # New url pattern below
 path('accounts/signup/', views.signup, name='signup'),
 
