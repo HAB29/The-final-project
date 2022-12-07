@@ -3,27 +3,27 @@
 
     <h1>REAL ESTATES🏘</h1>
     <hr />
-     
-   {% for real in real %}
+    
+        {% for real in real %}
 
-    <ul> 
-   
-   <li> Title: {{real.tittle}}</li> 
-   <li> Price: ${{real.price}}</li> 
-   <li> Space: {{real.space}}</li> 
-   <li> Features: {{real.features}}</li> 
-   <li> Location: {{real.location}}</li> 
-   {% for image in real.multimg_set.all %}
-   <li><img src="{{ image.Images.url }}"></li><br>
-   
-    {% endfor %}
-    <form action="/addRealBooking/{{ real.id }}/" method="POST">
-        {% csrf_token %}
-         <button type="submit">Rent Now!</button>
-     </form>
-</ul>
-
-
+        <ul> 
+            <li> Title: {{real.tittle}}</li> 
+            <li> Price: ${{real.price}}</li> 
+            <li> Space: {{real.space}}</li> 
+            <li> Features: {{real.features}}</li> 
+            <li> Location: {{real.location}}</li> 
+          <div class="imgslide">
+            {% for image in real.multimg_set.all %}
+                
+                    <li class="imgitem"><img src="{{ image.Images.url }}"></li><br>
+            
+            {% endfor %}
+        </div>
+        </ul>
+        <form action="/addRealBooking/{{ real.id }}/" method="POST">
+            {% csrf_token %}
+             <button type="submit">Rent Now!</button>
+         </form>
 
 <form id="note-form">
     <input id="note-input" type="text" placeholder="+ Add Comment" required />

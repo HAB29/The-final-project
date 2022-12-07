@@ -34,29 +34,16 @@ body {
   .NAV5{
     float: right;
   }
-/* .navMenueUl{
-    display: inline-flex;
-    flex-direction: row;
-    text-decoration:none
+
+
+
+.imgslide {
+    display: flex;
+    overflow-x: scroll;
+    width: 100%;
 }
 
-.navMenuLi{
-    margin:20px
-} */
-
-/* The fisrt navbar on top */
-/* .navMenueUl1{
-  text-decoration:none;
-    display: inline-flex;
-    flex-direction: row;
-    margin-right: 30px;
+.imgitem {
+  margin: 15px;
+  width: 100%;
 }
-
-.navMenu{
-  background-color: white;
-
-}
-.right-nav{
-  text-decoration:none;
-  background-color: white;
-} */
