@@ -3,5 +3,18 @@
 
     <h1>hi profile</h1>
 
+    <h2>My Bookings</h2>
 
-{% endblock  %}
+    {% for c in user.booking_set.all %}
+        <p>{{ c.cars.type }}</p>
+        <p>{{ c.cars.brand }}</p>
+        <p>{{ c.cars.year }}</p>
+        <p>{{ c.cars.description }}</p>
+        
+    {% endfor %}
+        
+{% endblock %}
+
+
+
+
