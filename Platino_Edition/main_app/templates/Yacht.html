@@ -31,7 +31,7 @@
 
     <form id="note-form">
         <input id="note-input" type="text" placeholder="+ Add Comment" required />
-        <button id="note-submit">Add</button>
+        <button id="note-submit">Add Review</button>
       </form>
       <ul id="notes"></ul>
       <script>
@@ -54,7 +54,7 @@
   
         const listBuilder = (text) => {
           const note = document.createElement("li");
-          note.innerHTML = text + `<li>{{user.username}}</li>` + `<button onclick="deleteNote(this)">x</button>`
+          note.innerHTML = text + `<li>{{user.username}}</li>` + `<button onclick="deleteNote(this)">Delete Review</button>`
           // note.innerHTML = text + ' ';
           notes.appendChild(note);
         };
