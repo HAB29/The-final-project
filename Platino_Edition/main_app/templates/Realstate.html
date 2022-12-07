@@ -7,22 +7,22 @@
         {% for real in real %}
 
         <ul> 
-   
-   <li> Title: {{real.tittle}}</li> 
-   <li> Price: ${{real.price}}</li> 
-   <li> Space: {{real.space}}</li> 
-   <li> Features: {{real.features}}</li> 
-   <li> Location: {{real.location}}</li> 
-   {% for image in real.multimg_set.all %}
-   <li><img src="{{ image.Images.url }}"></li><br>
-   
-    {% endfor %}
-    <form action="/addRealBooking/{{ real.id }}/" method="POST">
-        {% csrf_token %}
-         <button type="submit">Rent Now!</button>
-     </form>
-</ul>
-
+            <li> Title: {{real.tittle}}</li> 
+            <li> Price: ${{real.price}}</li> 
+            <li> Space: {{real.space}}</li> 
+            <li> Features: {{real.features}}</li> 
+            <li> Location: {{real.location}}</li> 
+          <div class="imgslide">
+            {% for image in real.multimg_set.all %}
+                
+                    <li class="imgitem"><img src="{{ image.Images.url }}"></li><br>
+            
+           
+            
+            {% endfor %}
+        </div>
+            <button type="submit">Book Now!</button>
+        </ul>
 
 
 <form id="note-form">
