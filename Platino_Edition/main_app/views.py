@@ -94,11 +94,11 @@ def removeBooking(request, item_id, item_name):
             
     elif item_name == 'jets':
         y = Booking.objects.get(id=item_id)
-        request.user.booking_set.remove(z)
+        request.user.booking_set.remove(y)
             
     elif item_name == 'yachts':
         x = Booking.objects.get(id=item_id)
-        request.user.booking_set.remove(z)
+        request.user.booking_set.remove(x)
 
     return redirect('profile')
 

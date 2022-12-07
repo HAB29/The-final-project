@@ -6,22 +6,25 @@
         <p>{{ c.cars.type }}</p>
         <p>{{ c.cars.brand }}</p>
         <p>{{ c.cars.year }}</p> <br>
+        {% if c.cars %}
         <form action="/removeBooking/{{ c.id }}/cars/" method="POST">
             {% csrf_token %}
             <button type="submit">Delete</button>
         </form>
+        {% endif %}
         {% endfor %}
         
         {% for re in user.booking_set.all %}
-        
+
         <p>{{ re.realestates.tittle }}</p>
         <p>{{ re.realestates.price }}</p>
         <p>{{ re.realestates.location }}</p><br>
-        
-        <form action="/removeBooking/{{ re.realestates.id }}/realestates/" method="POST">
+        {% if re.realestates %}
+        <form action="/removeBooking/{{ re.id }}/realestates/" method="POST">
             {% csrf_token %}
             <button type="submit">Delete</button>
         </form>
+        {% endif %}
         {% endfor %}
         
         {% for yachy in user.booking_set.all %}
@@ -29,10 +32,12 @@
         <p>{{ yachy.yachts.type }}</p>
         <p>{{ yachy.yachts.price }}</p>
         <p>{{ yachy.yachts.location }}</p><br>
-        <form action="/removeBooking/{{ yachy.yachts.id }}/yachts/" method="POST">
+        {% if yachy.yachts %}
+        <form action="/removeBooking/{{ yachy.id }}/yachts/" method="POST">
             {% csrf_token %}
             <button type="submit">Delete</button>
         </form>
+        {% endif %}
         
         {% endfor %}
         
@@ -41,11 +46,12 @@
         <p>{{ jete.jets.type }}</p>
         <p>{{ jete.jets.price }}</p>
         <p>{{ jete.jets.location }}</p><br>
-        <form action="/removeBooking/{{ jete.jets.id }}/jets/" method="POST">
+        {% if jete.jets %}
+        <form action="/removeBooking/{{ jete.id }}/jets/" method="POST">
             {% csrf_token %}
              <button type="submit">Delete</button>
          </form>
-
+         {% endif %}
 {% endfor %}
 
 
