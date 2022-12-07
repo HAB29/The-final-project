@@ -17,11 +17,11 @@
         <ul> 
        
        <li> Brand: {{veh.brand}}</li> 
-       <li> Type: ${{veh.type}}</li> 
+       <li> Type: {{veh.type}}</li> 
        <li> Year: {{veh.year}}</li> 
        <li> Description: {{veh.description}}</li> 
-       <li> Price: {{veh.price}}</li> 
-       {% for image in veh.multimg_set.all %}
+       <li> Price: ${{veh.price}}</li> 
+       <!-- {% for image in veh.multimg_set.all %}
        <li><img src="{{ image.Images.url }}"></li><br>
        
         {% endfor %}
@@ -29,8 +29,20 @@
            {% csrf_token %}
             <button type="submit">Rent Now!</button>
         </form>
-    </ul>
+    </ul> -->
 
+    <div class="imgslide">
+      {% for image in veh.multimg_set.all %}
+          
+              <li class="imgitem"><img src="{{ image.Images.url }}"></li><br>
+      
+      {% endfor %}
+  </div>
+  </ul>
+  <form action="/addCarBooking/{{ veh.id }}/" method="POST">
+      {% csrf_token %}
+      <button type="submit">Rent Now!</button>
+   </form>
 
 
 
