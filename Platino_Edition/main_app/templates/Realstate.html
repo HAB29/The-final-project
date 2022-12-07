@@ -17,13 +17,13 @@
                 
                     <li class="imgitem"><img src="{{ image.Images.url }}"></li><br>
             
-           
-            
             {% endfor %}
         </div>
-            <button type="submit">Book Now!</button>
         </ul>
-
+        <form action="/addRealBooking/{{ real.id }}/" method="POST">
+            {% csrf_token %}
+             <button type="submit">Rent Now!</button>
+         </form>
 
 <form id="note-form">
     <input id="note-input" type="text" placeholder="+ Add Comment" required />

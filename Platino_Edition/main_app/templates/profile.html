@@ -13,6 +13,7 @@
         {% endfor %}
         
         {% for re in user.booking_set.all %}
+        
         <p>{{ re.realestates.tittle }}</p>
         <p>{{ re.realestates.price }}</p>
         <p>{{ re.realestates.location }}</p><br>
