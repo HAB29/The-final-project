@@ -4,7 +4,6 @@
     <h1>hi profile</h1>
 
     <h2>My Bookings</h2>
-
     {% for c in user.booking_set.all %}
         <p>{{ c.cars.type }}</p>
         <p>{{ c.cars.brand }}</p>

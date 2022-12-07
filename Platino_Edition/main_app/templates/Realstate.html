@@ -3,22 +3,30 @@
 
     <h1>REAL ESTATES🏘</h1>
     <hr />
-     
-   {% for real in real %}
+    
+        {% for real in real %}
 
-    <ul> 
+        <ul> 
    
-   <li> Title: {{real.tittle}}</li> 
-   <li> Price: ${{real.price}}</li> 
-   <li> Space: {{real.space}}</li> 
-   <li> Features: {{real.features}}</li> 
-   <li> Location: {{real.location}}</li> 
-   {% for image in real.multimg_set.all %}
-   <li><img src="{{ image.Images.url }}"></li><br>
-   
-    {% endfor %}
-    <button type="submit">Book Now!</button>
-</ul>
+            <li> Title: {{real.tittle}}</li> 
+            <li> Price: ${{real.price}}</li> 
+            <li> Space: {{real.space}}</li> 
+            <li> Features: {{real.features}}</li> 
+            <li> Location: {{real.location}}</li> 
+          <div class="imgslide">
+            {% for image in real.multimg_set.all %}
+                
+                    <li class="imgitem"><img src="{{ image.Images.url }}"></li><br>
+            
+           
+            
+            {% endfor %}
+        </div>
+            <button type="submit">Book Now!</button>
+        </ul>
 
-   {% endfor %}
+        {% endfor %}
+ 
+   
 {% endblock  %}
+
