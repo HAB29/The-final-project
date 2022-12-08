@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
+<h2>Yacht 🛥 </h2>
+<img src="https://i.imgur.com/hgzkVCj.png">
 
-    <h1>Yachts 🛥</h1>
-    
     <hr />
 
     {% for yah in boat %}
+ 
 
     <ul>
-    
+
     <li>Brand: {{yah.brand}}</li>
     <li>Type: {{yah.type}}</li>
     <li>Year: {{yah.year}}</li>
@@ -16,16 +17,24 @@
     <li>Price: ${{yah.price}}</li>
     <li>Location: {{yah.location}}}</li>
     <li>Image: {{yah.Image}}</li>
-    {% for image in yah.multimg_set.all %}
-    <li><img src="{{ image.Images.url }}"></li><br>
-    
-     {% endfor %}
-     <form action="/addYachtBooking/{{ yah.id }}/" method="POST">
-        {% csrf_token %}
-         <button type="submit">Rent Now!</button>
-     </form>
 
+
+    <div class="imgslide">
+        {% for image in yah.multimg_set.all %}
+            
+        <li class="imgitem"><img src="{{ image.Images.url }}"></li><br>
+        
+        {% endfor %}
+    </div>
     </ul>
+    <form action="/addYachtBooking/{{ yah.id }}/" method="POST">
+        {% csrf_token %}
+        <button type="submit">Rent Now!</button>
+     </form>
+  
+
+
+
 
 
 
@@ -79,5 +88,29 @@
     
        {% endfor %}
 
-
-{% endblock  %}
+       <style>
+        button{
+       color: #fff;
+      background-color: #beab80;
+      border-color: #b5a06f;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      text-align: center;
+      min-width: 100px;
+      margin: 13px;
+        }
+     
+        form{
+         
+      TEXT-ALIGN: center;
+  }
+  h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center; 
+}
+        ul{
+            text-align: center;
+        }
+        
+     </style>
+  {% endblock  %}

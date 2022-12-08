@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="style.css" />
       </head>
       <body>
-        <h1>CAR 🚘</h1>
+        <img src="https://i.imgur.com/W2RYt6q.png">
     
     {% for veh in vehicle %}
 
@@ -21,15 +21,7 @@
        <li> Year: {{veh.year}}</li> 
        <li> Description: {{veh.description}}</li> 
        <li> Price: ${{veh.price}}</li> 
-       <!-- {% for image in veh.multimg_set.all %}
-       <li><img src="{{ image.Images.url }}"></li><br>
-       
-        {% endfor %}
-        <form action="/addCarBooking/{{ veh.id }}/" method="POST">
-           {% csrf_token %}
-            <button type="submit">Rent Now!</button>
-        </form>
-    </ul> -->
+     
 
     <div class="imgslide">
       {% for image in veh.multimg_set.all %}
@@ -95,4 +87,28 @@
   <hr />
     
        {% endfor %}
-    {% endblock  %}
+       <style>
+        button{
+       color: #fff;
+      background-color: #beab80;
+      border-color: #b5a06f;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      text-align: center;
+      min-width: 100px;
+      margin: 13px;
+        }
+     
+        form{
+         
+      TEXT-ALIGN: center;
+  }
+  h1{
+    text-align: center; 
+}
+  ul{
+            text-align: center;
+        }
+     </style>
+  {% endblock  %}
+  

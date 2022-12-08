@@ -23,6 +23,8 @@ body {
     color: rgb(17, 84, 17);
   }
   
+
+
   .NAV2{
     float: right;
     font-size: larger;
@@ -30,9 +32,12 @@ body {
 
   .NAV3{
     float: right;
+    color: black;
   }
+ 
   .NAV5{
     float: right;
+    color: black;
   }
 
 

@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <h1>Jets 🛩</h1>
-    
+<p>The  World's Premier marketplace to find business Jets and Propeller</p>
+ <img src="https://i.imgur.com/7k7KOF1.png">
+
     <hr />
     {% for je in je %}
 
@@ -13,15 +14,24 @@
    <li> Space: {{je.space}}</li> 
    <li> Features: {{je.features}}</li> 
    <li> Location: {{je.location}}</li> 
-   {% for image in je.multimg_set.all %}
-   <li><img src="{{ image.Images.url }}"></li><br>
-   
-    {% endfor %}
-    <form action="/addJetBooking/{{ je.id }}/" method="POST">
-        {% csrf_token %}
-        <button type="submit">Rent Now!</button>
-     </form>
+
+
+
+<div class="imgslide">
+  {% for image in je.multimg_set.all %}
+      
+  <li class="imgitem"><img src="{{ image.Images.url }}"></li><br>
+  
+  {% endfor %}
+</div>
 </ul>
+<form action="/addJetBooking/{{ je.id }}/" method="POST">
+  {% csrf_token %}
+  <button type="submit">Rent Now!</button>
+</form>
+
+
+
 
 <form id="note-form">
     <input id="note-input" type="text" placeholder="+ Add Comment" required />
@@ -73,6 +83,37 @@
 
    {% endfor %}
 
+   <style>
+    button{
+   color: #fff;
+  background-color: #beab80;
+  border-color: #b5a06f;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  min-width: 100px;
+  margin: 13px;
+    }
+ 
+    form{
+     
+  TEXT-ALIGN: center;
+}
+h1{
+    text-align: center; 
+}
+ul{
+            text-align: center;
+        }
+        p {
+   font-size: xx-large;
+   font-family: heldane, prata, sans-serif;
+  position: absolute;
+  color: #fff;
+  top: 222px;
+  left: 16px;
+}
+ </style>
 
     <footer>All Rights Reserved, &copy; 2022 Platino Edition</footer> 
 {% endblock  %}

@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <h1>REAL ESTATES🏘</h1>
+<img src="https://i.imgur.com/hgHYF3R.png">
+
     <hr />
     
         {% for real in real %}
@@ -22,7 +23,7 @@
         </ul>
         <form action="/addRealBooking/{{ real.id }}/" method="POST">
             {% csrf_token %}
-             <button type="submit">Rent Now!</button>
+             <button class="H" type="submit">Rent Now!</button>
          </form>
 
 <form id="note-form">
@@ -76,4 +77,30 @@
    {% endfor %}
 
 
+   <style>
+
+   
+
+      button{
+     color: #fff;
+    background-color: #beab80;
+    border-color: #b5a06f;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    min-width: 100px;
+    margin: 13px;
+      }
+   
+      form{
+       
+    TEXT-ALIGN: center;
+}
+h1{
+    text-align: center; 
+}
+ul{
+            text-align: center;
+        }
+   </style>
 {% endblock  %}

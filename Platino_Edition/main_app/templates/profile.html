@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <h2>My Bookings</h2>
+    <h1>My Bookings</h1>
     {% for c in user.booking_set.all %}
         <p>{{ c.cars.type }}</p>
         <p>{{ c.cars.brand }}</p>
         <p>{{ c.cars.year }}</p> <br>
         {% if c.cars %}
+        <P class="Book">Thank you for your Bookings The SpecialistAgent Will contact you shortly ✉︎ </P>
         <form action="/removeBooking/{{ c.id }}/cars/" method="POST">
             {% csrf_token %}
             <button type="submit">Delete</button>
@@ -20,6 +21,7 @@
         <p>{{ re.realestates.price }}</p>
         <p>{{ re.realestates.location }}</p><br>
         {% if re.realestates %}
+        <P class="Book">Thank you for your Bookings The SpecialistAgent Will contact you shortly ✉︎ </P>
         <form action="/removeBooking/{{ re.id }}/realestates/" method="POST">
             {% csrf_token %}
             <button type="submit">Delete</button>
@@ -33,6 +35,7 @@
         <p>{{ yachy.yachts.price }}</p>
         <p>{{ yachy.yachts.location }}</p><br>
         {% if yachy.yachts %}
+        <P class="Book">Thank you for your Bookings The SpecialistAgent Will contact you shortly ✉︎ </P>
         <form action="/removeBooking/{{ yachy.id }}/yachts/" method="POST">
             {% csrf_token %}
             <button type="submit">Delete</button>
@@ -47,17 +50,40 @@
         <p>{{ jete.jets.price }}</p>
         <p>{{ jete.jets.location }}</p><br>
         {% if jete.jets %}
+        <P class="Book">Thank you for your Bookings The SpecialistAgent Will contact you shortly ✉︎ </P>
         <form action="/removeBooking/{{ jete.id }}/jets/" method="POST">
             {% csrf_token %}
              <button type="submit">Delete</button>
-         </form>
-         {% endif %}
-{% endfor %}
-
-
+            </form>
+            {% endif %}
+            {% endfor %}
+            <style>
+    button{
+   color: #fff;
+  background-color: #beab80;
+  border-color: #b5a06f;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  min-width: 100px;
+  margin: 13px;
+    }
+ 
+    form{
+     
+  TEXT-ALIGN: center;
+}
+h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center; 
+}
+p{
+            text-align: center;
+        }
+ </style>
+{% endblock  %}
 
         
-{% endblock %}
 
 
 
